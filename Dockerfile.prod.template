@@ -1,0 +1,10 @@
+FROM rdmix/node-build:v0.0.3 AS builder
+WORKDIR /home/app
+COPY package.json package-lock.json ./
+RUN npm install --production
+
+FROM rdmix/node-run:v0.0.4
+WORKDIR /home/app
+COPY --from=builder /home/app/node_modules ./node_modules
+COPY . .
+CMD [ "pm2-runtime", "start", "app.js" ]
