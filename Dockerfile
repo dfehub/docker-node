@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.6-nodejs12
+FROM nikolaik/python-nodejs:python3.10-nodejs16
 
 LABEL maintainer="itxishu@163.com"
 
